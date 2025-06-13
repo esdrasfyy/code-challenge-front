@@ -26,7 +26,7 @@ A aplicação foi construída com foco em **performance, usabilidade e escalabil
   - Pesquisa por nome e e-mail
   - Scroll infinito (melhor desempenho)
   - Atualização em tempo real
-- Exportação e importação de usuários via CSV
+- Exportação e importação de usuários via CSV (tem um arquivo de exemplo no diretorio /data)
 - Feedbacks visuais e validações
 - Animações com **Framer Motion**
 - Cache inteligente de dados com **React Query (useQuery)**
