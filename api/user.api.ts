@@ -1,8 +1,6 @@
 import { api } from "@/lib/axios.lib";
 
 const Create = async ({ data }: { data: User.Personal & User.Address & { terms_accepted: boolean } }) => {
-  console.log(data);
-
   return await api.post("users", data);
 };
 

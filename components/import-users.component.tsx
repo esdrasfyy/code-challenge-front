@@ -29,13 +29,10 @@ export function ImportUserCsv({ refetch }: { refetch: () => void }) {
         try {
           await PersonalSchema.validate(user, { abortEarly: false });
           await AddressSchema.validate(user, { abortEarly: false });
-          console.log(user);
           await UserAPI.Create({ data: { ...user, terms_accepted: true } });
 
           success++;
         } catch (err: any) {
-          console.log(err);
-
           failed++;
         }
       }
