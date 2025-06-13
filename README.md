@@ -31,7 +31,7 @@ A aplicação foi construída com foco em **performance, usabilidade e escalabil
 - Animações com **Framer Motion**
 - Cache inteligente de dados com **React Query (useQuery)**
 
-<img src="/client/public/video.gif" width="500" height="300">
+<img src="/public/iza-app.gif" width="500" height="300">
 
 ---
 
