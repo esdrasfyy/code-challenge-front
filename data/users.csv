@@ -1,0 +1,7 @@
+full_name,email,phone,zip_code,address,number,city,state
+Alice Johnson,alice.johnson@gmail.com,"(11) 91234-5678",01001-000,Rua A,100,São Paulo,SP
+Bruno Lima,bruno.lima@gmail.com,"(21) 98765-4321",20040-002,Rua B,200,Rio de Janeiro,RJ
+Carlos Silva,carlos.silva@gmail.com,"(31) 99988-7766",30140-071,Rua C,300,Belo Horizonte,MG
+Daniela Souza,daniela.souza@gmail.com,"(51) 98877-6655",90010-000,Rua D,400,Porto Alegre,RS
+Eduardo Rocha,eduardo.rocha@gmail.com,"(71) 97766-5544",40010-000,Rua E,500,Salvador,BA
+Fernanda Alves,fernanda.alves@gmail.com,"(61) 96655-4433",70040-900,Rua F,600,Brasília,DF

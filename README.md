@@ -6,7 +6,6 @@ Este repositório contém o ponto de partida para o seu desafio de desenvolvimen
 
 Seu objetivo é desenvolver um formulário de cadastro de usuário dividido em 3 etapas, utilizando Next.js, TypeScript, e Zustand para gerenciamento de estado. O formulário deverá implementar validações de frontend com máscaras de input e, na etapa final, enviar os dados para a API de Registro de Usuários.
 
-
 ## Requisitos Fundamentais
 
 ### Estrutura da Aplicação:
@@ -17,10 +16,10 @@ Seu objetivo é desenvolver um formulário de cadastro de usuário dividido em 3
 - Todo o código deve ser escrito em TypeScript.
 - Adote Tailwind CSS e/ou Chakra UI para a estilização dos componentes, garantindo responsividade e acessibilidade.
 
-
 ### Gerenciamento de Estado com Zustand:
 
 Crie uma store Zustand dedicada para gerenciar o estado global do formulário de cadastro. Isso inclui:
+
 - Os dados de cada etapa do formulário, que devem mapear diretamente para os campos esperados pela API.
 - O número da etapa atual do formulário.
 - Funções para avançar (`nextStep`) e retroceder (`prevStep`) entre as etapas.
@@ -68,7 +67,6 @@ Crie uma store Zustand dedicada para gerenciar o estado global do formulário de
   - **Validações de Backend (complementares)**: Todos os campos obrigatórios; email válido e único; phone e zip_code com formato brasileiro; state sigla brasileira válida; terms_accepted deve ser true.
   - **Códigos de Resposta Relevantes**: 201 Created (sucesso), 400 Bad Request (erros de validação), 409 Conflict (email já existe), 500 Internal Server Error (erro interno).
 
-
 ## Recursos Opcionais (Diferenciais)
 
 ### Tela de Gerenciamento de Usuários
@@ -76,16 +74,19 @@ Crie uma store Zustand dedicada para gerenciar o estado global do formulário de
 Crie uma rota `/users` que implemente:
 
 1. **Listagem de Usuários**:
+
    - Tabela com paginação
    - Busca/filtro por nome ou email
    - Ordenação por colunas
 
 2. **Edição de Usuário**:
+
    - Modal ou nova página para edição
    - Reutilização do formulário de cadastro (com preenchimento dos dados)
    - Integração com endpoint PUT da API
 
 3. **Exclusão de Usuário**:
+
    - Confirmação antes da exclusão
    - Integração com endpoint DELETE da API
    - Feedback visual após operação
@@ -95,6 +96,7 @@ Crie uma rota `/users` que implemente:
    - Histórico de alterações (se API suportar)
 
 ### Requisitos Técnicos Opcionais:
+
 - Cache de dados com Zustand
 - Atualização em tempo real da lista após operações
 - Animações de transição entre estados
@@ -109,3 +111,4 @@ Crie uma rota `/users` que implemente:
 ```bash
 git clone <URL_DO_SEU_FORK_PRIVADO>
 cd <nome-do-seu-repositorio>
+```
