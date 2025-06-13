@@ -42,9 +42,9 @@ export default function Admin() {
         <span className="opacity-50">({filteredUsers.length})</span>
       </div>
 
-      <div className="flex justify-between w-full items-center gap-6">
-        <div className="flex gap-4 items-center">
-          <span className="font-bold text-lg opacity-50 mt-2">SHOW</span>
+      <div className="flex justify-between w-full items-center gap-6 max-md:flex-col-reverse">
+        <div className="flex gap-4 items-center max-md:w-full max-md:mt-8">
+          <span className="font-bold text-lg opacity-50 mt-2 max-md:hidden">SHOW</span>
 
           <SelectUi
             items={[
@@ -53,7 +53,7 @@ export default function Admin() {
               { label: "30", value: "30" },
             ]}
             onChange={(value: string) => setLimit(+value)}
-            width="w-[90px]"
+            width="min-w-[90px]"
             defaultValue="20"
             value={String(limit)}
           />
@@ -65,20 +65,22 @@ export default function Admin() {
               { label: "Name (Z-A)", value: "name_desc" },
             ]}
             onChange={(value: string) => setOrder(value.trim().toLowerCase())}
-            width="w-[170px]"
+            width="w-[170px] max-md:w-full"
             defaultValue="created_desc"
             value={order}
           />
         </div>
 
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-6 items-center max-md:w-full justify-between">
           <SearchUi onSubmit={(value: string) => setSearchTerm(value.trim().toLowerCase())} onChange={(value: string) => setSearchTerm(value.trim().toLowerCase())} onClear={() => setSearchTerm("")} value={searchTerm} />
-          <CreateUserForm refetch={refetch} />
-          <ImportUserCsv refetch={refetch} />
+          <div className="flex gap-5">
+            <CreateUserForm refetch={refetch} />
+            <ImportUserCsv refetch={refetch} />
+          </div>
         </div>
       </div>
 
-      <ul className="rounded-md shadow-sm grid grid-cols-3 gap-6 space-y-24 mt-32">
+      <ul className="rounded-md shadow-sm grid grid-cols-3 gap-6 space-y-24 mt-32 max-lg:grid-cols-2 max-md:grid-cols-1">
         {filteredUsers.map((user, i) => (
           <UserCard key={user.email} user={user} index={i} refetch={refetch} />
         ))}

@@ -16,9 +16,9 @@ export function UpdateUserForm({ user, refetch }: { user: User.I; refetch: () =>
   const [open, setOpen] = useState<boolean>(false);
 
   const steps = [
-    { step: 1, title: "Personal Information", description: "Edit the user's personal details" },
+    { step: 1, title: "Personal", description: "Edit the user's personal details" },
     { step: 2, title: "Address", description: "Edit the user's address information" },
-    { step: 3, title: "Review & Submit", description: "Review all details before submitting changes" },
+    { step: 3, title: "Review", description: "Review all details before submitting changes" },
   ];
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -60,7 +60,7 @@ export function UpdateUserForm({ user, refetch }: { user: User.I; refetch: () =>
 
   const onOpen = () => {
     setPersonalData({ full_name: user.full_name, email: user.email, phone: user.phone });
-    
+
     setAddressData({ zip_code: user.zip_code, address: user.address, number: user.number, city: user.city, state: user.state });
 
     setTermsAccepted(true);
@@ -71,21 +71,23 @@ export function UpdateUserForm({ user, refetch }: { user: User.I; refetch: () =>
   return (
     <>
       <ModalUi isVisible={open} onClose={() => setOpen(false)} title="Update User" description="Edit and update user details">
-        <div className="flex space-x-36 w-full py-14 items-center">
-          <aside className="space-y-5 flex flex-col justify-end items-end">
+        <div className="flex space-x-36 w-full py-14 items-center max-md:flex-col max-md:space-x-0 max-md:py-4">
+          <aside className="space-y-5 flex flex-col justify-end items-end max-md:flex-row max-md:space-y-0 max-md:w-full max-md:items-center max-md:justify-between max-md:mb-16">
             {steps.map((step, i) => (
               <React.Fragment key={i}>
-                <div className="flex justify-between gap-5 w-80">
+                <div className="flex justify-between gap-5 w-80 max-md:items-center max-md:w-fit max-md:flex-row-reverse">
                   <div className="flex w-full flex-col items-end justify-end">
-                    <h4 className="text-lg font-semibold">{step.title}</h4>
-                    <p className="opacity-45 w-fit text-sm">{step.description}</p>
+                    <h4 className="text-lg font-semibold max-md:text-sm">{step.title}</h4>
+                    <p className="opacity-45 w-fit text-sm max-md:hidden">{step.description}</p>
                   </div>
-                  <div className={`duration-300 rounded-full text-2xl min-w-[50px] h-[50px] ${stepCurr === step.step ? "bg-secondary-brand" : "bg-bg-primary"} flex justify-center items-center`}>{stepCurr <= step.step ? step.step : <IoCheckmarkOutline size={25} />}</div>
+                  <div className={`duration-300 rounded-full text-2xl min-w-[50px] h-[50px] max-md:min-w-[20px] max-md:h-[20px] max-md:text-sm ${stepCurr === step.step ? "bg-secondary-brand" : "bg-bg-primary"} flex justify-center items-center`}>
+                    {stepCurr <= step.step ? step.step : <IoCheckmarkOutline size={25} />}
+                  </div>
                 </div>
 
                 {i < steps.length - 1 && (
-                  <div className="flex justify-center mr-6">
-                    <div className="w-[1px] h-[60px] bg-primary-brand overflow-hidden">
+                  <div className="flex justify-center mr-6 max-md:mr-0">
+                    <div className="w-[1px] h-[60px] max-md:h-[1px] max-md:w-[20px] bg-primary-brand overflow-hidden">
                       <div className={`w-full transition-all duration-300 ${stepCurr > step.step ? "h-full bg-secondary-brand" : "h-0"}`} />
                     </div>
                   </div>

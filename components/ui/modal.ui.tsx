@@ -18,7 +18,7 @@ export function ModalUi({ children, isVisible, onClose, title, description }: Mo
       {isVisible && (
         <>
           <motion.div onClick={onClose} initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 bg-black z-40" />
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.3 }} className="fixed top-1/2 w-full max-w-[1100px] left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded bg-tertiary-brand bg-opacity-90" role="alert">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.3 }} className="fixed top-1/2 w-full max-w-[1100px] left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded bg-tertiary-brand bg-opacity-90 max-lg:max-w-[95vw]" role="alert">
             <header className="w-full flex justify-between border-b border-primary-brand p-6">
               <div>
                 <h2 className="text-2xl font-semibold">{title}</h2>
@@ -28,7 +28,7 @@ export function ModalUi({ children, isVisible, onClose, title, description }: Mo
                 <LiaTimesSolid size={20} />
               </button>
             </header>
-            <div className="p-6 w-full">{children}</div>
+            <div className="p-6 w-full max-md:p-3">{children}</div>
           </motion.div>
         </>
       )}
