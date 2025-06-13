@@ -54,11 +54,13 @@ Foco em UX, modularidade de componentes e integração fluida com o backend simu
 - **Yup**
 
 ---
+## Observações sobre a API fornecida
 
-## Como Rodar o Projeto
+Durante o desenvolvimento, identifiquei alguns pontos de atenção na API que podem impactar o uso por outros candidatos:
 
-### 1. Instalar Dependências
+- O campo `updated_at` não consta na tabela de `users`, dificultando o controle de atualizações.
+- Os usuários retornados na listagem não possuem seus respectivos `id`s, o que inviabiliza operações como edição, exclusão e busca individual.
+- Os campos `created_at` e `updated_at` não são retornados na rota de listagem, dificultando a ordenação cronológica.
+- A configuração de CORS estava incorreta, bloqueando requisições no ambiente local.
 
-```bash
-npm install
-```
+Apesar desses pontos, consegui contornar as limitações na minha implementação. No entanto, deixo registrado para facilitar o trabalho de outros participantes que venham a utilizar essa mesma API.
