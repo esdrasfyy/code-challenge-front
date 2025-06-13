@@ -60,8 +60,7 @@ export function UpdateUserForm({ user, refetch }: { user: User.I; refetch: () =>
 
   const onOpen = () => {
     setPersonalData({ full_name: user.full_name, email: user.email, phone: user.phone });
-    console.log(user.state);
-
+    
     setAddressData({ zip_code: user.zip_code, address: user.address, number: user.number, city: user.city, state: user.state });
 
     setTermsAccepted(true);

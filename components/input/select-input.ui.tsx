@@ -13,16 +13,18 @@ interface SelectUiProps {
   error?: string;
   label?: string;
   tag_required?: boolean;
+  bg?: string;
   value?: string;
 }
 
-export function SelectUi({ items, onChange, defaultValue, width = "w-[320px]", label, error, tag_required, value }: SelectUiProps) {
-  const defaultOption = items.find((item) => item.value === defaultValue) || null;
+export function SelectUi({ items, onChange, defaultValue, width = "w-[320px]", label, error, tag_required, value, bg = theme.colors.bg.secondary }: SelectUiProps) {
+  const selected = (value ?? defaultValue ?? "").toString().trim();
+  const valueCurr = items.find((item) => item.value === selected) || null;
 
   const customStyles: StylesConfig<SelectItem> = {
     control: (base) => ({
       ...base,
-      backgroundColor: theme.colors.bg.secondary,
+      backgroundColor: bg,
       borderRadius: 6,
       minHeight: 48,
       fontSize: 16,
@@ -44,7 +46,7 @@ export function SelectUi({ items, onChange, defaultValue, width = "w-[320px]", l
     }),
     option: (base, state) => ({
       ...base,
-      backgroundColor: state.isSelected || state.isFocused ? theme.colors.brand.tertiary : theme.colors.bg.secondary,
+      backgroundColor: state.isSelected || state.isFocused ? theme.colors.brand.tertiary : bg,
       color: state.isSelected || state.isFocused ? "#FF4D4D" : theme.colors.text.secondary,
       cursor: "pointer",
     }),
@@ -66,7 +68,7 @@ export function SelectUi({ items, onChange, defaultValue, width = "w-[320px]", l
         {label}
         {tag_required && <span className="text-secondary-brand"> *</span>}
       </label>
-      <ReactSelect instanceId="uniqueId" isSearchable={false} options={items} defaultValue={defaultOption} onChange={handleChange} styles={customStyles} />
+      <ReactSelect value={valueCurr} instanceId="uniqueId" isSearchable={false} options={items} onChange={handleChange} styles={customStyles} />
       {error && error !== "required" && <ErrorUi message={error} />}
     </div>
   );

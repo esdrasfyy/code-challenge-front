@@ -8,6 +8,7 @@ import { formatCEP } from "@/utils/masks";
 import axios from "axios";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { theme } from "@/components/ui/theme.ui";
 
 export function StepTwoUser() {
   const [loadingCep, setLoadingCep] = useState(false);
@@ -47,7 +48,7 @@ export function StepTwoUser() {
                 if (!data.erro) {
                   setAddressData({ ["address"]: data.logradouro });
                   setAddressData({ ["city"]: data.localidade });
-                  setAddressData({ state: StatesBR[data.uf as keyof typeof StatesBR] });
+                  setAddressData({ state: data.uf });
                 }
               } catch (error) {
               } finally {
@@ -65,7 +66,7 @@ export function StepTwoUser() {
       <motion.div className="flex gap-4" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}>
         <InputDefaultUi name="number" label="Number" value={number} onChange={handleChange} error={formErrors.address?.number} tag_required />
         <InputDefaultUi name="city" label="City" value={city} onChange={handleChange} error={formErrors.address?.city} tag_required />
-        <SelectUi items={Object.values(StatesBR).map((uf) => ({ label: uf, value: uf }))} error={formErrors.address?.state} label="State" tag_required value={state} onChange={(selected) => setAddressData({ ["state"]: selected })} width="w-full" />
+        <SelectUi bg={theme.colors.bg.primary} items={Object.entries(StatesBR).map(([uf, name]) => ({ label: name, value: uf }))} error={formErrors.address?.state} label="State" tag_required value={state} onChange={(selected) => setAddressData({ ["state"]: selected })} width="w-full" />
       </motion.div>
 
       <motion.div className="flex gap-5 justify-end mt-20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>

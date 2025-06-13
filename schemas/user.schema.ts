@@ -17,7 +17,7 @@ export const AddressSchema = yup.object().shape({
   address: yup.string().required("required"),
   number: yup.string().required("required"),
   city: yup.string().required("required"),
-  state: yup.string().required("required").oneOf(["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"], "Invalid state"),
+  state: yup.string().required("required"),
 });
 
 export const UserSchema = yup.object().shape({

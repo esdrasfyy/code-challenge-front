@@ -155,8 +155,7 @@ export const useFormStore = create<FormState>((set, get) => ({
 
     try {
       await UserSchema.validate(formData, { abortEarly: true });
-      const state = Object.keys(StatesBR).find((key) => StatesBR[key as keyof typeof StatesBR] === formData.address.state) as string;
-      const response = await UserAPI.Create({ data: { ...formData.personal, ...formData.address, terms_accepted: formData.terms_accepted, state } });
+      const response = await UserAPI.Create({ data: { ...formData.personal, ...formData.address, terms_accepted: formData.terms_accepted } });
       set({ submission: { ...INITIAL_SUBMISSION_STATUS, isSuccess: true } });
       return response;
     } catch (error: any) {
